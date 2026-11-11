@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071b35">
+<title>SeaDocs | مدیریت دریایی</title>
+<style>
+:root{--navy:#071629;--navy2:#102b49;--blue:#1d5d8f;--cyan:#45b9c5;--bg:#f4f2ed;--card:#fffefa;--ink:#142b40;--muted:#778493;--line:#e8e2d7;--green:#168c78;--amber:#bd9144;--red:#c94d5b;--gold:#c6a15b;--shadow:0 14px 34px rgba(7,22,41,.09)}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#061426 0%,#0a2342 18%,#173b63 34%,#382064 47%,#f2f5fa 66%,#f2f5fa 100%);background-attachment:fixed;color:var(--ink);font-family:Tahoma,Arial,sans-serif;font-size:14px;position:relative}
+body:before{content:"";position:fixed;z-index:-1;pointer-events:none;inset:0;background:radial-gradient(ellipse at 88% 35%,#a855f755 0%,transparent 34%),radial-gradient(ellipse at 8% 48%,#7c3aed44 0%,transparent 30%);}
+
+.top{background:linear-gradient(135deg,#061426 0%,#102b49 62%,#30205f 100%);color:white;padding:23px 20px 30px;border-radius:0 0 28px 28px;position:relative;overflow:hidden}
+.top:after{content:"";position:absolute;width:260px;height:260px;border:1px solid #c084fc44;border-radius:50%;left:-90px;top:-120px;box-shadow:0 0 0 25px #ffffff08,0 0 0 55px #ffffff06}
+.toprow{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}.brand{display:flex;align-items:center;gap:11px}.logo{width:50px;height:50px;border-radius:16px;background:linear-gradient(145deg,#d5b875,#98713b);display:grid;place-items:center;font-size:28px;box-shadow:0 7px 18px #0003;color:#071629}.brand b{font-size:22px;letter-spacing:.5px}.brand small{display:block;color:#b9d4e8;margin-top:4px;font-size:14px}.avatar{width:38px;height:38px;border-radius:50%;border:1px solid #ffffff55;display:grid;place-items:center;background:#ffffff15}
+.greeting{margin:24px 0 5px;font-size:21px;font-weight:bold;position:relative;z-index:1}.sub{color:#c1d7e9;font-size:14px;position:relative;z-index:1}
+main{max-width:680px;margin:-12px auto 92px;padding:0 15px;position:relative;z-index:1}
+.search{margin:0 0 15px;background:white;border:1px solid var(--line);border-radius:15px;padding:0 14px;display:flex;align-items:center;gap:9px;box-shadow:var(--shadow)}.search input{border:0!important;box-shadow:none!important;margin:0!important;background:transparent!important;padding:15px 0!important}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-bottom:15px}.stat{background:linear-gradient(145deg,#fffefa,#f7f3ff);border:1px solid var(--line);border-radius:17px;padding:15px;box-shadow:var(--shadow)}.stat .ico{width:48px;height:48px;border-radius:15px;background:linear-gradient(145deg,#f7f0df,#e9dfc8);display:grid;place-items:center;font-size:26px;margin-bottom:12px;color:#8d6a32}.stat strong{font-size:25px;color:var(--navy)}.stat small{display:block;color:var(--muted);margin-top:5px}
+.sectionhead{display:flex;align-items:center;justify-content:space-between;margin:20px 2px 10px}.sectionhead h2{font-size:15px;margin:0;color:var(--navy)}.link{border:0;background:none;color:var(--blue);font:inherit;font-size:15px}
+.panel{background:#fffefa;border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:var(--shadow);margin-bottom:13px}
+.alert{display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;background:#fff8e9;border:1px solid #f6e7c6}.alert .ico{font-size:21px}.alert b{display:block;font-size:14px}.alert small{color:#8d7444;font-size:14px;display:block;margin-top:4px}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.quick button{border:1px solid #e7dfd0;background:linear-gradient(160deg,#fffefa,#f7f3e9);border-radius:17px;padding:15px 5px;color:var(--ink);font:inherit;font-size:14px;box-shadow:var(--shadow)}.quick i{font-style:normal;display:block;font-size:30px;margin-bottom:9px;filter:drop-shadow(0 3px 3px #102b4918)}
+.screen{display:none}.screen.active{display:block}.page-title{font-size:21px;font-weight:bold;color:var(--navy);margin:8px 2px 5px}.page-sub{font-size:15px;color:var(--muted);margin:0 2px 17px}
+.formbox{background:#fffefa;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow);margin-bottom:14px}.formbox h3{font-size:14px;margin:0 0 13px;color:var(--navy)}
+label{display:block;color:var(--muted);font-size:15px;margin:10px 0 5px}input,select{width:100%;padding:13px;border:1px solid #dce6ef;border-radius:11px;background:#fafdff;font:inherit;font-size:14px;color:var(--ink);outline:none}input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px #1769aa18}
+.primary{width:100%;border:1px solid #b78be8;border-radius:12px;padding:14px;background:linear-gradient(110deg,#102b49,#1d6686 68%,#7136a8);color:white;font:inherit;font-weight:bold;margin-top:13px}
+.record{padding:13px 2px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;align-items:center}.record:last-child{border:0}.record b{font-size:14px}.record small{display:block;color:var(--muted);font-size:14px;margin-top:5px;line-height:1.8}.badge{font-size:11px;padding:5px 8px;border-radius:20px;background:#f4eddf;color:#8b6b35;white-space:nowrap}
+.empty{padding:22px;text-align:center;color:var(--muted);font-size:15px}
+.bottom{display:none}.bottom button{border:0;background:none;color:#8798a9;font:inherit;font-size:11px;padding:4px 0}.bottom button span{display:block;font-size:22px;margin-bottom:4px}.bottom button.active{color:var(--blue);font-weight:bold}.bottom button.active span{filter:drop-shadow(0 3px 4px #1769aa35)}
+.photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}.photo-card{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#f8fbfe}.photo-card img{width:100%;height:125px;object-fit:cover;display:block}.photo-card small{display:block;padding:8px;color:var(--muted);font-size:14px;line-height:1.7}.location-row{display:flex;gap:8px;align-items:center}.location-row input{flex:1;min-width:0}.location-btn{border:1px solid #e3d2a8;background:#fbf7eb;color:#876321;border-radius:11px;padding:0 12px;height:43px;font:inherit;font-size:15px;white-space:nowrap}.hint{font-size:14px;color:var(--muted);line-height:1.8;margin-top:6px}.record-actions{display:flex;gap:6px;align-items:center}.delete-btn{border:0;background:#fff0f1;color:#bd4251;border-radius:9px;padding:7px 9px;font:inherit;font-size:14px}
+.hide{display:none!important}
+
+.menu-trigger{border:1px solid #d8b4ff77;background:linear-gradient(145deg,#ffffff1c,#8b5cf633);color:#f1d7ff;box-shadow:0 0 16px #a855f733;border-radius:12px;width:44px;height:44px;font-size:25px;display:grid;place-items:center}
+.drawer-shade{position:fixed;inset:0;background:#06142699;z-index:20;opacity:0;visibility:hidden;transition:.25s}
+.drawer{position:fixed;z-index:21;top:0;bottom:0;right:0;width:min(82vw,330px);background:linear-gradient(180deg,#081a30,#182b55 72%,#39205f);color:#fff;padding:24px 18px;transform:translateX(105%);transition:.28s;box-shadow:-15px 0 40px #0003;overflow:auto}
+.drawer.open{transform:translateX(0)}.drawer-shade.open{opacity:1;visibility:visible}
+.drawer-brand{display:flex;align-items:center;gap:12px;padding:10px 4px 25px;border-bottom:1px solid #ffffff20;margin-bottom:18px}
+.drawer-brand b{font-size:22px;letter-spacing:.5px}.drawer-brand small{display:block;color:#b4c8d9;font-size:11px;margin-top:4px}
+.drawer-label{color:#9bb3c8;font-size:14px;margin:20px 8px 9px}
+.drawer button{width:100%;display:flex;align-items:center;gap:15px;padding:14px 13px;border:0;border-radius:13px;background:transparent;color:#e8f0f7;font:inherit;text-align:right;font-size:15px;margin:4px 0}
+.drawer button span{font-size:25px;width:30px;text-align:center}
+.drawer button.active{background:linear-gradient(100deg,#c6a15b35,#a855f744);border:1px solid #c084fc88;color:#fff;box-shadow:0 0 18px #9333ea22}
+.drawer-foot{margin-top:28px;padding:14px;border:1px solid #ffffff20;border-radius:14px;color:#b9cbd9;font-size:14px;line-height:2}
+.top-actions{display:flex;gap:9px;align-items:center}
+.page-nav{display:flex;gap:10px;padding:10px 16px;background:#fffefa;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.page-nav button{flex:1;border:1px solid #d8d0c4;border-radius:12px;background:linear-gradient(120deg,#102b49,#1d5d8f);color:white;padding:10px 12px;font:inherit;font-weight:700;font-size:14px;box-shadow:0 5px 12px #07162918}
+@media(min-width:600px){.stats{grid-template-columns:repeat(4,1fr)}main{padding:0 22px}.top{padding-right:max(22px,calc((100% - 636px)/2));padding-left:max(22px,calc((100% - 636px)/2))}}
+</style></head>
+<body>
+<header class="top"><div class="toprow"><div class="brand"><div class="logo">⚓</div><div><b>SeaDocs</b><small>MARITIME DOCUMENT MANAGER</small></div></div><div class="top-actions"><div class="avatar">👤</div><button class="menu-trigger" onclick="toggleMenu()" aria-label="باز کردن منو">☰</button></div></div><div class="greeting">سلام، خوش آمدید</div><div class="sub">مدیریت هوشمند مدارک کشتی‌ها و دریانوردان</div></header>
+<div class="page-nav"><button type="button" onclick="goBack()">↩ برگشت</button><button type="button" onclick="navigate('home')">⌂ صفحه اصلی</button></div>
+<main>
+<section id="home" class="screen active">
+<div class="search">⌕ <input id="globalSearch" placeholder="جستجو در کشتی‌ها، افراد و مدارک..." oninput="searchAll(this.value)"></div>
+<div class="stats">
+<div class="stat"><div class="ico">🚢</div><strong id="shipCount">۰</strong><small>کشتی‌های ثبت‌شده</small></div>
+<div class="stat"><div class="ico">👨‍✈️</div><strong id="crewCount">۰</strong><small>دریانوردان</small></div>
+<div class="stat"><div class="ico">📁</div><strong id="docCount">۰</strong><small>کل مدارک</small></div>
+<div class="stat"><div class="ico">⏳</div><strong id="dueCount">۰</strong><small>نیازمند پیگیری</small></div>
+</div>
+<div class="sectionhead"><h2>دسترسی سریع</h2></div>
+<div class="quick"><button onclick="show('ships')"><i>🚢</i>افزودن کشتی</button><button onclick="show('crew')"><i>👨‍✈️</i>افزودن خدمه</button><button onclick="show('docs')"><i>📄</i>ثبت مدرک</button><button onclick="show('alerts')"><i>🔔</i>انقضاها</button></div>
+<div class="sectionhead"><h2>مدارک نیازمند توجه</h2><button class="link" onclick="show('alerts')">مشاهده همه ←</button></div>
+<div class="panel" id="homeAlerts"><div class="empty">هنوز مدرکی ثبت نشده است.</div></div>
+<div class="sectionhead"><h2>آخرین مدارک ثبت‌شده</h2><button class="link" onclick="show('docs')">آرشیو مدارک ←</button></div>
+<div class="panel" id="recentDocs"><div class="empty">مدرکی برای نمایش وجود ندارد.</div></div>
+</section>
+<section id="ships" class="screen"><div class="page-title">ناوگان کشتی‌ها</div><div class="page-sub">ثبت و مدیریت اطلاعات کشتی‌ها</div>
+<div class="formbox"><h3>＋ ثبت کشتی جدید</h3><form id="sf"><label>نام کشتی</label><input id="sn" required placeholder="مثلاً SEA STAR"><label>شماره IMO</label><input id="imo" placeholder="شماره هفت رقمی IMO"><label>پرچم</label><input id="flag" placeholder="کشور پرچم"><button class="primary">ذخیره کشتی</button></form></div><div class="panel" id="shipList"></div></section>
+<section id="crew" class="screen"><div class="page-title">دریانوردان</div><div class="page-sub">پروفایل و اطلاعات پرسنل دریایی</div>
+<div class="formbox"><h3>＋ ثبت دریانورد جدید</h3><form id="cf"><label>نام و نام خانوادگی</label><input id="cn" required placeholder="نام کامل"><label>سمت / رده شغلی</label><input id="rank" placeholder="مثلاً Chief Officer"><label>شماره تماس یا شناسه</label><input id="contact" placeholder="اطلاعات تماس"><button class="primary">ذخیره دریانورد</button></form></div><div class="panel" id="crewList"></div></section>
+<section id="docs" class="screen"><div class="page-title">آرشیو مدارک</div><div class="page-sub">ثبت، دسته‌بندی و پیگیری اسناد</div>
+<div class="formbox"><h3>＋ ثبت مدرک جدید</h3><form id="df"><label>عنوان مدرک</label><input id="dn" required placeholder="نام مدرک"><label>مرتبط با</label><select id="kind"><option value="ship">کشتی</option><option value="crew">دریانورد</option></select><label>انتخاب مورد</label><select id="owner"></select><label>دسته‌بندی</label><select id="cat"><option>گواهینامه</option><option>پرسنلی</option><option>ایمنی</option><option>فنی</option><option>بازرسی</option><option>بیمه</option><option>پزشکی</option><option>آموزشی</option><option>سایر</option></select><label>تاریخ انقضا</label><input id="expiry" type="date"><button class="primary">ذخیره مدرک</button></form></div><div class="panel" id="docList"></div></section>
+<section id="contacts" class="screen"><div class="page-title">افراد حاضر در کشتی</div><div class="page-sub">ثبت شماره تماس و نشانی افراد مرتبط با هر کشتی</div>
+<div class="formbox"><h3>＋ افزودن فرد به فهرست کشتی</h3><form id="pf"><label>انتخاب کشتی</label><select id="pShip" required></select><label>نام و نام خانوادگی</label><input id="pName" required placeholder="نام کامل فرد"><label>سمت یا نسبت با کشتی</label><input id="pRole" placeholder="مثلاً دریانورد، نماینده بندر، بازرس"><label>شماره تلفن</label><input id="pPhone" type="tel" placeholder="+98 ..."><label>آدرس</label><input id="pAddress" placeholder="شهر، خیابان و نشانی"><button class="primary">ذخیره اطلاعات فرد</button></form></div>
+<div class="sectionhead"><h2>فهرست افراد</h2></div><div class="panel" id="peopleList"></div></section>
+<section id="trips" class="screen"><div class="page-title">سفرها و آلبوم بنادر</div><div class="page-sub">ثبت هر سفر، بندر، موقعیت و عکس‌های گرفته‌شده</div>
+<div class="formbox"><h3>＋ ثبت سفر / توقف در بندر</h3><form id="tf"><label>کشتی</label><select id="tShip" required></select><label>نام بندر</label><input id="tPort" required placeholder="مثلاً بندرعباس"><label>تاریخ سفر یا توقف</label><input id="tDate" type="date"><label>موقعیت / نشانی بندر</label><div class="location-row"><input id="tLocation" placeholder="نام اسکله، ترمینال یا مختصات"><button class="location-btn" type="button" onclick="getPosition()">📍 موقعیت من</button></div><div class="hint" id="gpsHint">با اجازه شما، مختصات فعلی دستگاه ثبت می‌شود. در صورت نبود GPS می‌توانید نشانی را دستی وارد کنید.</div><label>توضیحات سفر</label><input id="tNotes" placeholder="توضیحات کوتاه درباره توقف یا سفر"><label>عکس‌های بندر و سفر</label><input id="tPhotos" type="file" accept="image/*" multiple><div class="hint">برای کاهش حجم، عکس‌ها هنگام ثبت کوچک‌سازی می‌شوند. بهتر است تعداد و حجم عکس‌ها را محدود نگه دارید.</div><button class="primary">ذخیره سفر و عکس‌ها</button></form></div>
+<div class="sectionhead"><h2>سفرهای ثبت‌شده</h2></div><div class="panel" id="tripList"></div></section>
+<section id="alerts" class="screen"><div class="page-title">هشدار انقضای مدارک</div><div class="page-sub">مدارک منقضی‌شده و مدارکی که در ۹۰ روز آینده منقضی می‌شوند</div><div class="panel" id="alertList"></div></section>
+<section id="settings" class="screen"><div class="page-title">تنظیمات</div><div class="page-sub">حساب کاربری و همگام‌سازی ابری</div>
+<div class="panel"><div class="record"><div><b>وضعیت اتصال ابری</b><small id="cloudStatus">در حال بررسی اتصال...</small></div><span class="badge" id="cloudBadge">محلی</span></div>
+<div id="authArea"><label>ایمیل</label><input id="authEmail" type="email" autocomplete="username" placeholder="name@example.com"><label>رمز عبور</label><input id="authPassword" type="password" autocomplete="current-password" placeholder="حداقل ۶ کاراکتر"><button class="primary" type="button" onclick="signInCloud()">ورود به حساب</button><button class="primary" type="button" onclick="signUpCloud()" style="background:linear-gradient(110deg,#58318a,#8a45bd)">ساخت حساب جدید</button></div>
+<div id="signedArea" class="hide"><div class="hint" id="signedEmail"></div><button class="primary" type="button" onclick="syncNow()">همگام‌سازی اطلاعات</button><button class="primary" type="button" onclick="signOutCloud()" style="background:#6c3345">خروج از حساب</button></div>
+<div class="hint">اطلاعات تا زمان ورود، روی همین دستگاه ذخیره می‌شود. پس از ورود، اطلاعات با حساب شما همگام می‌شود. برای فعال‌شدن این بخش باید در Firebase، ورود با ایمیل/رمز، Firestore و Storage را فعال کنید.</div>
+</div><div class="panel"><div class="record"><div><b>زبان برنامه</b><small>فارسی</small></div><span class="badge">فعال</span></div><button class="primary" onclick="exportData()">خروجی پشتیبان اطلاعات (JSON)</button></div></section>
+</main>
+<div class="drawer-shade" id="shade" onclick="toggleMenu(false)"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-brand"><div class="logo">⚓</div><div><b>SeaDocs</b><small>MARITIME DOCUMENT MANAGER</small></div></div>
+  <div class="drawer-label">منوی اصلی</div>
+  <button data-id="home" class="active" onclick="navigate('home')"><span>⌂</span>داشبورد</button>
+  <button data-id="ships" onclick="navigate('ships')"><span>🚢</span>مدیریت کشتی‌ها</button>
+  <button data-id="crew" onclick="navigate('crew')"><span>👨‍✈️</span>مدیریت دریانوردان</button>
+  <button data-id="docs" onclick="navigate('docs')"><span>📁</span>آرشیو اسناد و مدارک</button>
+  <button data-id="alerts" onclick="navigate('alerts')"><span>🔔</span>هشدارهای انقضا</button>
+  <div class="drawer-label">سایر</div>
+  <button data-id="settings" onclick="navigate('settings')"><span>⚙️</span>تنظیمات</button>
+  <div class="drawer-foot">نسخه نمایشی SeaDocs<br>مدیریت یکپارچه اسناد دریایی</div>
+</aside>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+const firebaseConfig = { apiKey:"AIzaSyBgz7-_mZUASYmZdRsz7cYGfJjd4", authDomain:"seadocs-2fd93.firebaseapp.com", projectId:"seadocs-2fd93", storageBucket:"seadocs-2fd93.firebasestorage.app", messagingSenderId:"145778096407", appId:"1:145778096407:web:6b7e99746f2ef5598a5f52", measurementId:"G-N9QWXWKH54" };
+const fbApp=initializeApp(firebaseConfig), auth=getAuth(fbApp), db=getFirestore(fbApp);
+let cloudUser=null, syncTimer=null, isApplyingCloud=false;
+const cloudKeys=["ships","crew","docs","people","trips"];
+function cloudStatus(msg,badge){const el=document.getElementById("cloudStatus");if(el)el.textContent=msg;const b=document.getElementById("cloudBadge");if(b)b.textContent=badge||"محلی";}
+const get=k=>JSON.parse(localStorage.getItem('sd_'+k)||'[]'),put=(k,v)=>{localStorage.setItem('sd_'+k,JSON.stringify(v));if(cloudUser&&!isApplyingCloud)scheduleCloudSync()};
+let ships=get('ships'),crew=get('crew'),docs=get('docs');
+const $=id=>document.getElementById(id);
+function esc(s){return String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+let screenHistory=['home']; function toggleMenu(force){let open=force===undefined?!$('drawer').classList.contains('open'):force;$('drawer').classList.toggle('open',open);$('shade').classList.toggle('open',open)}function navigate(id){toggleMenu(false);show(id)}function show(id){if(!$(id))return;const current=document.querySelector('.screen.active')?.id;if(current&&current!==id){screenHistory.push(current);if(screenHistory.length>30)screenHistory.shift()}document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');document.querySelectorAll('.drawer button[data-id]').forEach(b=>b.classList.toggle('active',b.dataset.id===id));draw();window.scrollTo(0,0)}function goBack(){if(screenHistory.length>1){const previous=screenHistory.pop();document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));$(previous)?.classList.add('active');document.querySelectorAll('.drawer button[data-id]').forEach(b=>b.classList.toggle('active',b.dataset.id===previous));draw();window.scrollTo(0,0)}else{navigate('home')}}
+function removeItem(k,i){let a=get(k);a.splice(i,1);put(k,a);draw()}
+function rows(a,k,sub){return a.map((x,i)=>`<div class="record"><div><b>${esc(x.name)}</b><small>${esc(sub(x))}</small></div><button class="badge" onclick="removeItem('${k}',${i})">حذف</button></div>`).join('')||'<div class="empty">هنوز موردی ثبت نشده است.</div>'}
+function dueDocs(){let now=new Date();now.setHours(0,0,0,0);return docs.filter(d=>d.expiry&&Math.ceil((new Date(d.expiry+'T00:00:00')-now)/86400000)<=90)}
+function draw(){ships=get('ships');crew=get('crew');docs=get('docs');$('pShip').innerHTML=ships.map(x=>`<option>${esc(x.name)}</option>`).join('')||'<option value="">ابتدا کشتی ثبت کنید</option>';$('tShip').innerHTML=ships.map(x=>`<option>${esc(x.name)}</option>`).join('')||'<option value="">ابتدا کشتی ثبت کنید</option>';$('shipCount').textContent=ships.length;$('crewCount').textContent=crew.length;$('docCount').textContent=docs.length;$('dueCount').textContent=dueDocs().length;
+$('shipList').innerHTML=rows(ships,'ships',x=>'IMO: '+(x.imo||'—')+'  •  '+(x.flag||'پرچم ثبت نشده'));
+$('crewList').innerHTML=rows(crew,'crew',x=>(x.rank||'بدون سمت')+'  •  '+(x.contact||''));
+$('docList').innerHTML=rows(docs,'docs',x=>x.owner+'  •  '+x.cat+'  •  '+(x.expiry||'بدون تاریخ انقضا'));
+$('owner').innerHTML=( $('kind').value==='ship'?ships:crew).map(x=>`<option>${esc(x.name)}</option>`).join('')||'<option value="">ابتدا مورد مرتبط را ثبت کنید</option>';
+let due=dueDocs();$('alertList').innerHTML=due.map(x=>`<div class="alert" style="margin:8px 0"><div class="ico">⚠️</div><div><b>${esc(x.name)} — ${esc(x.owner)}</b><small>${x.expiry} · ${x.cat}</small></div></div>`).join('')||'<div class="empty">در حال حاضر مدرکی با مهلت ۹۰ روزه وجود ندارد.</div>';
+$('homeAlerts').innerHTML=due.slice(0,3).map(x=>`<div class="alert" style="margin:7px 0"><div class="ico">⏳</div><div><b>${esc(x.name)}</b><small>${esc(x.owner)} · ${x.expiry}</small></div></div>`).join('')||'<div class="empty">همه‌چیز مرتب است؛ هشداری برای نمایش ندارید.</div>';
+$('recentDocs').innerHTML=docs.slice(-4).reverse().map(x=>`<div class="record"><div><b>${esc(x.name)}</b><small>${esc(x.owner)} · ${esc(x.cat)}</small></div><span class="badge">مدرک</span></div>`).join('')||'<div class="empty">مدرکی برای نمایش وجود ندارد.</div>';
+$('peopleList').innerHTML=get('people').map((x,i)=>`<div class="record"><div><b>${esc(x.name)}</b><small>🚢 ${esc(x.ship)} · ${esc(x.role||'بدون سمت')}<br>☎ ${esc(x.phone||'ثبت نشده')}<br>⌖ ${esc(x.address||'ثبت نشده')}</small></div><button class="delete-btn" onclick="removeItem('people',${i})">حذف</button></div>`).join('')||'<div class="empty">هنوز فردی ثبت نشده است.</div>';
+$('tripList').innerHTML=get('trips').slice().reverse().map((x,i)=>`<div class="record" style="display:block"><div style="display:flex;justify-content:space-between;gap:8px"><div><b>📍 ${esc(x.port)}</b><small>🚢 ${esc(x.ship)} · ${esc(x.date||'بدون تاریخ')}<br>${esc(x.location||'موقعیت ثبت نشده')}<br>${esc(x.notes||'')}</small></div><button class="delete-btn" onclick="removeTrip(${get('trips').length-1-i})">حذف</button></div>${x.photos&&x.photos.length?`<div class="photo-grid">${x.photos.map(src=>`<div class="photo-card"><img src="${src}" alt="عکس سفر"><small>${esc(x.port)} · ${esc(x.date||'')}</small></div>`).join('')}</div>`:''}</div>`).join('')||'<div class="empty">هنوز سفری ثبت نشده است.</div>'}
+$('sf').onsubmit=e=>{e.preventDefault();ships.push({name:$('sn').value,imo:$('imo').value,flag:$('flag').value});put('ships',ships);e.target.reset();draw()};
+$('cf').onsubmit=e=>{e.preventDefault();crew.push({name:$('cn').value,rank:$('rank').value,contact:$('contact').value});put('crew',crew);e.target.reset();draw()};
+$('kind').onchange=draw;$('df').onsubmit=e=>{e.preventDefault();let owner=$('owner').value;if(!owner){alert('ابتدا کشتی یا دریانورد مربوطه را ثبت کنید.');return}docs.push({name:$('dn').value,owner,cat:$('cat').value,expiry:$('expiry').value});put('docs',docs);e.target.reset();draw()};
+
+$('pf').onsubmit=e=>{e.preventDefault();let a=get('people');a.push({ship:$('pShip').value,name:$('pName').value,role:$('pRole').value,phone:$('pPhone').value,address:$('pAddress').value});put('people',a);e.target.reset();draw();alert('اطلاعات فرد ذخیره شد.')};
+function removeTrip(i){let a=get('trips');a.splice(i,1);put('trips',a);draw()}
+function getPosition(){if(!navigator.geolocation||!window.isSecureContext){$('gpsHint').textContent='برای دریافت GPS باید فایل در یک صفحه امن HTTPS باز شود؛ فعلاً نشانی یا مختصات را دستی وارد کنید.';return} $('gpsHint').textContent='در حال دریافت موقعیت...';navigator.geolocation.getCurrentPosition(pos=>{$('tLocation').value=pos.coords.latitude.toFixed(6)+', '+pos.coords.longitude.toFixed(6);$('gpsHint').textContent='مختصات با موفقیت دریافت شد.'},err=>{$('gpsHint').textContent='دریافت موقعیت انجام نشد؛ مجوز مکان را بررسی کنید یا نشانی را دستی بنویسید.'},{enableHighAccuracy:true,timeout:12000})}
+async function shrinkPhoto(file){return new Promise((resolve,reject)=>{let r=new FileReader();r.onerror=reject;r.onload=()=>{let img=new Image();img.onerror=reject;img.onload=()=>{let scale=Math.min(1,1100/Math.max(img.width,img.height));let c=document.createElement('canvas');c.width=Math.round(img.width*scale);c.height=Math.round(img.height*scale);c.getContext('2d').drawImage(img,0,0,c.width,c.height);resolve(c.toDataURL('image/jpeg',.68))};img.src=r.result};r.readAsDataURL(file)})}
+$('tf').onsubmit=async e=>{e.preventDefault();let files=[...$('tPhotos').files];if(files.length>8){alert('لطفاً حداکثر ۸ عکس برای هر سفر انتخاب کنید.');return}try{let photos=[];for(let f of files){if(f.size>12*1024*1024)throw new Error('هر عکس باید کمتر از ۱۲ مگابایت باشد.');photos.push(await shrinkPhoto(f))}let a=get('trips');a.push({ship:$('tShip').value,port:$('tPort').value,date:$('tDate').value,location:$('tLocation').value,notes:$('tNotes').value,photos});put('trips',a);e.target.reset();draw();alert('اطلاعات سفر ذخیره شد.')}catch(err){alert(err.message||'ذخیره عکس‌ها ممکن نشد. فضای ذخیره مرورگر ممکن است کافی نباشد.')}};
+
+function exportData(){let blob=new Blob([JSON.stringify({ships:get('ships'),crew:get('crew'),docs:get('docs'),people:get('people'),trips:get('trips')},null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='SeaDocs-backup.json';a.click();URL.revokeObjectURL(a.href)}
+function searchAll(q){if(!q.trim())return;let found=[...ships.map(x=>x.name),...crew.map(x=>x.name),...docs.map(x=>x.name)].filter(x=>x.toLowerCase().includes(q.toLowerCase()));if(found.length)alert('نتایج: '+found.join('، '));else if(q.length>1){}}
+
+async function collectCloudData(){const data={};for(const k of cloudKeys)data[k]=get(k);
+// عکس‌ها در نسخه رایگان فقط روی همین دستگاه می‌مانند و به Firestore فرستاده نمی‌شوند.
+for(const trip of (data.trips||[]))trip.photos=[];
+return data;}
+async function syncNow(){if(!cloudUser){cloudStatus("برای همگام‌سازی ابتدا وارد حساب شوید.");return}try{cloudStatus("در حال همگام‌سازی اطلاعات...");const docRef=doc(db,"users",cloudUser.uid,"seadocs","main");const snap=await getDoc(docRef);let local={};for(const k of cloudKeys)local[k]=get(k);if(!snap.exists()){const data=await collectCloudData();await setDoc(docRef,{...data,updatedAt:serverTimestamp()});cloudStatus("اطلاعات متنی این دستگاه در فضای ابری ذخیره شد؛ عکس‌ها فقط روی همین گوشی هستند.","متصل");return}
+const cloud=snap.data();const hasLocal=cloudKeys.some(k=>local[k]&&local[k].length);if(hasLocal&&!window.confirm("اطلاعاتی هم در این دستگاه و هم در فضای ابری وجود دارد. برای جلوگیری از حذف اطلاعات، داده‌های هر دو طرف با هم ادغام می‌شوند. ادامه می‌دهید؟")){cloudStatus("همگام‌سازی لغو شد؛ داده‌های محلی دست‌نخورده ماند.","متصل");return}
+const merged={};for(const k of cloudKeys){const a=Array.isArray(cloud[k])?cloud[k]:[], b=local[k]||[];const seen=new Set(a.map(x=>JSON.stringify(x)));merged[k]=[...a,...b.filter(x=>!seen.has(JSON.stringify(x)))];}
+const previous=cloudUser;isApplyingCloud=true;for(const k of cloudKeys)put(k,merged[k]);isApplyingCloud=false;const data=await collectCloudData();await setDoc(docRef,{...data,updatedAt:serverTimestamp()});draw();cloudStatus("همگام‌سازی اطلاعات متنی با موفقیت انجام شد؛ عکس‌ها فقط روی همین گوشی هستند.","متصل");}catch(err){isApplyingCloud=false;console.error(err);cloudStatus("خطا در همگام‌سازی: "+(err.message||"تنظیمات Firebase را بررسی کنید"),"خطا");alert("همگام‌سازی انجام نشد. در Firebase باید Authentication و Firestore فعال باشند و قوانین دسترسی تنظیم شده باشند.\n\n"+(err.message||""));}}
+function scheduleCloudSync(){clearTimeout(syncTimer);syncTimer=setTimeout(()=>syncNow(),1800)}
+async function signUpCloud(){const email=$("authEmail").value.trim(),password=$("authPassword").value;if(!email||password.length<6){alert("ایمیل معتبر و رمز عبور حداقل ۶ کاراکتری وارد کنید.");return}try{await createUserWithEmailAndPassword(auth,email,password)}catch(e){alert("ساخت حساب انجام نشد: "+e.message)}}
+async function signInCloud(){const email=$("authEmail").value.trim(),password=$("authPassword").value;if(!email||!password){alert("ایمیل و رمز عبور را وارد کنید.");return}try{await signInWithEmailAndPassword(auth,email,password)}catch(e){alert("ورود انجام نشد: "+e.message)}}
+async function signOutCloud(){await signOut(auth)}
+onAuthStateChanged(auth,user=>{cloudUser=user;$("authArea").classList.toggle("hide",!!user);$("signedArea").classList.toggle("hide",!user);if(user){$("signedEmail").textContent="واردشده با: "+user.email;cloudStatus("حساب متصل است؛ برای بار اول دکمه همگام‌سازی را بزنید.","متصل");}else cloudStatus("اطلاعات فعلاً فقط روی همین دستگاه است.","محلی")});
+Object.assign(window,{toggleMenu,navigate,show,goBack,removeItem,removeTrip,getPosition,exportData,searchAll,signInCloud,signUpCloud,signOutCloud,syncNow});
+draw();
+</script></body></html>
